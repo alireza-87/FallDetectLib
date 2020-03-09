@@ -3,8 +3,7 @@ An Android library for free fall detection
 
 This library detect free fall and save it inside local db
         
-The library use Dagger 2 as dependency injection also we use MVVM  as architecture.
-Android Room Used as database.
+The library use Dagger 2 as dependency injection also we use Android Room Used as database.
 
 * Usage:
   * initialize lib in your Application class
