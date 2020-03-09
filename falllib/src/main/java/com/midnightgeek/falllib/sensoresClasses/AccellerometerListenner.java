@@ -44,8 +44,10 @@ public class AccellerometerListenner implements SensorEventListener {
                 lastState= States.FALL;
                 modelFallLocal=new ModelFallLocal();
                 modelFallLocal.setStartTime(System.currentTimeMillis());
-                if (showNotification)
-                    handlerNotification.showNotification("FALL","FALLLLLL","DETECTED!!");
+                if (showNotification) {
+                    handlerNotification.initSettings(false);
+                    handlerNotification.showNotification("FALL", "FALLLLLL", "DETECTED!!");
+                }
 
             }else if (detection>9 && lastState==States.FALL){
                 Log.i(TAG, "detection : " + "LANDDDD");

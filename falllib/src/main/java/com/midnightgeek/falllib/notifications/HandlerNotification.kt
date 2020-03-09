@@ -40,17 +40,19 @@ class HandlerNotification @Inject constructor(context: Context){
         }
     }
 
-    fun syncSettings(){
+    private fun syncSettings(){
+        try{
+            if (Build.VERSION.SDK_INT>=26) {
+                val audioAttributes = AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+                        .build()
 
-        if (Build.VERSION.SDK_INT>=26) {
-            val audioAttributes = AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_NOTIFICATION)
-                    .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
-                    .build()
+                prefHander.setPreference(chTag(), NotificationHelper.getInstance(context).createOrUpdateChannel(prefHander.getString(chTag(), "1"), "falls", "", ledColor, vibPattern, defaultNotificationSound(), true, true, audioAttributes))
+            }
+        }catch (ex:java.lang.Exception){
 
-            prefHander.setPreference(chTag(), NotificationHelper.getInstance(context).createOrUpdateChannel(prefHander.getString(chTag(), "1"), "falls", "", ledColor, vibPattern, defaultNotificationSound(), true, true, audioAttributes))
         }
-
     }
 
     /**
