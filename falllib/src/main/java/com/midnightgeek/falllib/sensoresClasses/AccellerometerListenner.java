@@ -13,6 +13,9 @@ import com.midnightgeek.falllib.repository.source.local.models.ModelFallLocal;
 
 import javax.inject.Inject;
 
+/**
+ * <p>AccellerometerListenner</p>
+ */
 public class AccellerometerListenner implements SensorEventListener {
     private double aX,aY,aZ;
     private final String TAG="AccellerometerListenner";
@@ -23,7 +26,6 @@ public class AccellerometerListenner implements SensorEventListener {
     HandlerNotification handlerNotification;
 
     public AccellerometerListenner(boolean notifi) {
-        Log.e("AAAAAAA","QQQQQQQ");
         this.showNotification=notifi;
         LibLoader.builder().getServiceComponent().inject(this);
     }
@@ -35,6 +37,8 @@ public class AccellerometerListenner implements SensorEventListener {
             aY=event.values[1];
             aZ=event.values[2];
             double detection=Math.sqrt(aX*aX+aY*aY+aZ*aZ);
+            //Below 1 mean we detect a free fall
+            //In normal status this number must be around 9.8
             if (detection<1) {
                 Log.i(TAG, "detection : " + "FALLLL");
                 lastState= States.FALL;

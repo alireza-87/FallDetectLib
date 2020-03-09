@@ -3,6 +3,11 @@ package com.midnightgeek.falllib.repository.mapper;
 import com.midnightgeek.falllib.Models.ModelFallCore;
 import com.midnightgeek.falllib.repository.source.local.models.ModelFallLocal;
 
+/**
+ * <p>Mapper</p>
+ * This class used to convert localDB Model to Library model
+ * Each data source have got an especial model, so if one of them change nothing in library change
+ */
 public class Mapper {
 
     public Object map(Object data,Class T){

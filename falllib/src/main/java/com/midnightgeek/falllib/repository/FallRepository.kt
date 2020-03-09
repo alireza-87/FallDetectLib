@@ -11,6 +11,7 @@ import java.util.ArrayList
 import java.util.concurrent.Executors
 import javax.inject.Inject
 
+//This class responsible for save and retrive fall data ,Now we have just local DB , however, its possible to add remote repo to
 class FallRepository {
     private val databaseWriteExecutor = Executors.newFixedThreadPool(1)
     private var dataStream= MutableLiveData<List<ModelFallCore>>()

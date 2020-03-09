@@ -19,6 +19,10 @@ import com.midnightgeek.falllib.services.KeepAlive;
 
 import javax.inject.Inject;
 
+/**
+ * <p>Main Library</p>
+ * this class initialize library
+ */
 public class LibLoader {
     private static LibLoader ourInstance;
     private LibComponent libComponent;

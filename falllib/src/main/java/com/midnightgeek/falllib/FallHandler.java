@@ -5,6 +5,9 @@ import com.midnightgeek.falllib.Models.ModelFallCore;
 import com.midnightgeek.falllib.repository.FallRepository;
 import java.util.List;
 
+/**
+ * public class for retrieve fall data
+ */
 public class FallHandler {
     private static final FallHandler ourInstance = new FallHandler();
 
